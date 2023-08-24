@@ -29,6 +29,29 @@ const App = () =>{
       setOperation('')
     }
   }
+  const handleMultNumber = () => {
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0')
+      setOperation('*');
+    }else{
+      const sum = Number(firstNumber) * Number(currentNumber)
+      setCurrentNumber(String(sum))
+      setOperation('')
+    }
+  }
+
+  const handleDivNumber = () => {
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0')
+      setOperation('/');
+    }else{
+      const sum = Number(firstNumber) / Number(currentNumber)
+      setCurrentNumber(String(sum))
+      setOperation('')
+    }
+  }
 
   const handleMinusNumber = () => {
     if(firstNumber === '0'){
@@ -51,6 +74,12 @@ const App = () =>{
       case '-':
         handleMinusNumber();
         break;
+      case '*':
+        handleMultNumber();
+        break;
+      case '/':
+        handleDivNumber();
+        break;
       default:
         break;
      }
@@ -67,13 +96,13 @@ const App = () =>{
           <Botton label="7" onClick={() => handleAddNumber('7')}  />
           <Botton label="8" onClick={() => handleAddNumber('8')}  />
           <Botton label="9" onClick={() => handleAddNumber('9')}  />
-          <Botton label="/" />
+          <Botton label="/" onClick={() => handleDivNumber()}/>
         </Row>
         <Row>
           <Botton label="4" onClick={() => handleAddNumber('4')}  />
-          <Botton label="5" onClick={() => handleAddNumber('handleSumNumber5')}  />
+          <Botton label="5" onClick={() => handleAddNumber('5')}  />
           <Botton label="6" onClick={() => handleAddNumber('6')}  />
-          <Botton label="*" />
+          <Botton label="*" onClick={() => handleMultNumber()}/>
         </Row>
         <Row>
           <Botton label="1" onClick={() => handleAddNumber('1')}  />
@@ -83,7 +112,7 @@ const App = () =>{
         </Row>
         <Row>
           <Botton label="0" onClick={() => handleAddNumber('0')}  />
-          <Botton label="." />
+          <Botton label="." onClick={() => handleAddNumber('.')}/>
           <Botton label="+" onClick={() => handleSumNumber()}/>
           <Botton label="=" onClick={() => handleEquals() } />
         </Row>
