@@ -61,7 +61,7 @@ const App = () =>{
       <Content>
         <Input value = {currentNumber}/>
         <Row>
-        <Botton label="C" onClick={()=> handleOnClear()}/>
+        <Botton label="Limpar" onClick={()=> handleOnClear()}/>
         </Row>
         <Row>
           <Botton label="7" onClick={() => handleAddNumber('7')}  />
